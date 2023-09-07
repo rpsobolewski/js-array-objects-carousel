@@ -148,7 +148,66 @@ for (let i = 0; i < slides.length; i++) {
 nextEl.addEventListener('click', function () {
   console.log('cliccato su next');
 
+  nextSlide();
+
+
+})
+
+const auto = document.querySelector("button")
+
+
+
+
+//auto carousel
+auto.addEventListener('click', function () {
+  
+setInterval(nextSlide, 1500);
+})
+
+
+
+
+
+// intercept click on the prev icon
+
+
+// activeSlide = 0
+prevEl.addEventListener('click', function () {
+  console.log('cliccato su prev');
+
+
   // select the current slide
+  const currentSlide = slidesImages[activeSlide]
+  console.log(currentSlide);
+  // remove the active class from the current slide
+  currentSlide.classList.remove('active')
+
+  if (activeSlide === 0) {
+    activeSlide = slidesImages.length - 1
+    // activeSlide = 5
+  } else {
+    // decrement the activeSlide of 1
+    activeSlide--
+  }
+
+
+  console.log(activeSlide);
+
+
+  // select the next slide
+  const nextSlide = slidesImages[activeSlide]
+  console.log(nextSlide);
+  // add the active class to the next slide
+  nextSlide.classList.add('active')
+})
+
+
+
+
+
+
+
+function nextSlide(){
   const currentSlide = slidesImages[activeSlide]
   console.log(currentSlide);
   // remove the active class from the current slide
@@ -187,39 +246,4 @@ nextEl.addEventListener('click', function () {
   console.log(nextThumb);
   // add to the next thumb the active class
   nextThumb.classList.add('active')
-
-
-})
-
-// intercept click on the prev icon
-
-
-// activeSlide = 0
-prevEl.addEventListener('click', function () {
-  console.log('cliccato su prev');
-
-
-  // select the current slide
-  const currentSlide = slidesImages[activeSlide]
-  console.log(currentSlide);
-  // remove the active class from the current slide
-  currentSlide.classList.remove('active')
-
-  if (activeSlide === 0) {
-    activeSlide = slidesImages.length - 1
-    // activeSlide = 5
-  } else {
-    // decrement the activeSlide of 1
-    activeSlide--
-  }
-
-
-  console.log(activeSlide);
-
-
-  // select the next slide
-  const nextSlide = slidesImages[activeSlide]
-  console.log(nextSlide);
-  // add the active class to the next slide
-  nextSlide.classList.add('active')
-})
+}
