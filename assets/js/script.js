@@ -86,11 +86,11 @@ const nextEl = document.querySelector('.next')
 /* Print all images into the dom */
 // loop over the slides 
 for (let i = 0; i < slides.length; i++) {
-  const slidePath = slides[i];
+  const slidePath = slides[i].img;
   console.log(slidePath);
 
   // for each slide we create the markup
-  const slideMarkup = `<img class="${activeSlide === i ? 'active' : ''}" src="${slidePath}" alt="">`
+  const slideMarkup = `<img class="${activeSlide === i ? 'active' : ''}" src="${slides[i].img}" alt="">`
   //console.log(slideMarkup);
 
   sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
@@ -132,7 +132,7 @@ Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di 
 const thumbsElement = document.querySelector('.thumbnails')
 
 for (let i = 0; i < slides.length; i++) {
-  const thumbPath = slides[i];
+  const thumbPath = slides[i].img;
   const thumbMarkup = `<img class="thumb ${activeSlide === i ? 'active' : ''}" src="${thumbPath}" alt="">`
   //console.log(thumbMarkup);
 
