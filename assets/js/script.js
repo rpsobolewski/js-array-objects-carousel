@@ -161,7 +161,15 @@ const auto = document.getElementById("auto");
 //auto carousel
 auto.addEventListener('click', function () {
   
-setInterval(nextSlide, 1500);
+  const nextInterval = setInterval(nextSlide, 1500);
+  stop.addEventListener('click', function () {
+  
+    setTimeout(() => {
+      clearInterval(nextInterval);
+      console.log('Interval stopped');
+    }, 0);
+    
+    })
 })
 
 
@@ -169,11 +177,27 @@ const reverse = document.getElementById("reverse");
 
 reverse.addEventListener('click', function () {
   
-  setInterval(prevSlide, 1500);
+  const prevInterval = setInterval(prevSlide, 1500);
   
+  
+
+  stop.addEventListener('click', function () {
+  
+    setTimeout(() => {
+      clearInterval(prevInterval);
+      console.log('Interval stopped');
+    }, 0);
+    
+    })
   })
 
 
+
+
+  const stop = document.getElementById("stop")
+
+
+  
 // intercept click on the prev icon
 
 
