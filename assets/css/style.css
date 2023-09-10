@@ -113,3 +113,6 @@ img
 	height: calc(100% / 5);
 	object-fit: cover;
 }
+.active{
+	transform: scale(1.1);
+}
