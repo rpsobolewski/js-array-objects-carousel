@@ -153,7 +153,7 @@ nextEl.addEventListener('click', function () {
 
 })
 
-const auto = document.querySelector("button")
+const auto = document.getElementById("auto");
 
 
 
@@ -165,7 +165,13 @@ setInterval(nextSlide, 1500);
 })
 
 
+const reverse = document.getElementById("reverse");
 
+reverse.addEventListener('click', function () {
+  
+  setInterval(prevSlide, 1500);
+  
+  })
 
 
 // intercept click on the prev icon
@@ -175,8 +181,12 @@ setInterval(nextSlide, 1500);
 prevEl.addEventListener('click', function () {
   console.log('cliccato su prev');
 
+prevSlide();
 
-  // select the current slide
+})
+
+function prevSlide() {
+    // select the current slide
   const currentSlide = slidesImages[activeSlide]
   console.log(currentSlide);
   // remove the active class from the current slide
@@ -199,8 +209,7 @@ prevEl.addEventListener('click', function () {
   console.log(nextSlide);
   // add the active class to the next slide
   nextSlide.classList.add('active')
-})
-
+}
 
 
 
